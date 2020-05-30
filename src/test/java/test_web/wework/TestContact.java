@@ -34,10 +34,20 @@ public class TestContact {
 
     }
 
+    @Test
+    void testChangeParty(){
+        contact.addParty("test").sleep(1000).delParty();
+    }
+
+    @Test
+    void testChangeTag(){
+        contact.addTag("test").sleep(1000).delTag();
+    }
+
     @AfterAll
     static void afterAll(){
         try {
-            Thread.sleep(20000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
