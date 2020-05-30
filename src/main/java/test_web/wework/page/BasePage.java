@@ -14,7 +14,7 @@ public class BasePage {
     WebDriverWait wait;
 
     public BasePage() {
-        System.setProperty("webdriver.chrome.driver","E:\\tools\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver","E:\\tools\\chromedriver.exe");
         driver=new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         wait=new WebDriverWait(driver, Duration.ofSeconds(10));
