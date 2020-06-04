@@ -1,5 +1,6 @@
 package test_app.xueqiu.page;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
@@ -14,6 +15,7 @@ public class MainPage {
     public MainPage() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "android");
+        desiredCapabilities.setCapability("deviceId","192.168.196.101:5555");
         desiredCapabilities.setCapability("deviceName", "hogwarts");
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
@@ -24,7 +26,7 @@ public class MainPage {
 
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
         //todo: 等待优化
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     public SearchPage toSearch(){
@@ -33,8 +35,10 @@ public class MainPage {
         return new SearchPage(driver);
     }
 
-    public void toStock(){
-
+    public StockPage toStock(){
+        WebElement element= (WebElement) driver.findElementsById("com.xueqiu.android:id/tab_name").get(1);
+        element.click();
+        return new StockPage(driver);
     }
 
 }
