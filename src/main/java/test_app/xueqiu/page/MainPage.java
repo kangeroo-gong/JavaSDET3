@@ -15,7 +15,7 @@ public class MainPage {
     public MainPage() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "android");
-        desiredCapabilities.setCapability("deviceId","192.168.196.101:5555");
+        //desiredCapabilities.setCapability("deviceId","192.168.196.101:5555");
         desiredCapabilities.setCapability("deviceName", "hogwarts");
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
